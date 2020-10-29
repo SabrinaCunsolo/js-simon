@@ -6,42 +6,48 @@
 // Nome repo: js-simon
 
 $(document).ready(function() {
-// creo array con i numeri random che utente visualizza
-var listaNumeriRandom = [];
-var numeroRandom;
-var numeroUtente;
-var listaNumeriUtente = [];
 
-// devo creare un ciclo per creare i numeri casuali
-for (var i = 0; i < 5; i++) {
-    numeroRandom = getRandomInt(1, 100);
-    console.log(numeroRandom);
-    // devo inserire il numeroRandom nell'array listaNumeriRandom
-    listaNumeriRandom.push(numeroRandom);
-}
-console.log(listaNumeriRandom);
-// Chiedo all'utente di memorizzare i 5 numeri della listaNumeriRandom
-document.write(' Ciao! Prova a memorizzare questi 5 numeri ' + listaNumeriRandom);
+    // creo array con i numeri random che utente visualizza
+    var listaNumeriRandom = [];
+    var numeroRandom;
+    var numeroUtente;
+    var listaNumeriUtente = [];
 
-// Dopo 30 secondi i numeri vengono rimossi dalla pagina
-var secondi = message.open();
-message.document.write(' Ciao! Prova a memorizzare questi 5 numeri ' + listaNumeriRandom);
-setTimeout(function() {
-    message.close();
-}, 30000);
-
-// l'utente deve inserire i numeri visualizzati in precedenza
+    // devo creare un ciclo per creare i numeri casuali
     for (var i = 0; i < 5; i++) {
-    numeroUtente = parseInt(prompt(' Inserisci uno alla volta i numeri che ricordi '));
-        for (var numeri = 0; numeri < listaNumeriRandom.length; numeri++) {
-        if (numeroUtente == listaNumeriRandom[numeri]) {
-            listaNumeriUtente.push(numeroUtente);
-        }
+        numeroRandom = getRandomInt(1, 100);
+        console.log(numeroRandom);
+        // devo inserire il numeroRandom nell'array listaNumeriRandom
+        listaNumeriRandom.push(numeroRandom);
     }
-}
-// devo stampare quanti numeri ha ricordato l'utente + i numeri corretti che ha inserito
-document.write(' Sei riuscito a ricordare ' + listaNumeriUtente.length + 'numeri. Ecco i numeri indovinati:' + listaNumeriUtente);
-console.log(listaNumeriUtente);
+    console.log(listaNumeriRandom);
+    // Chiedo all'utente di memorizzare i 5 numeri della listaNumeriRandom
+
+    // Dopo 30 secondi i numeri vengono rimossi dalla pagina
+    $('.memorizza-numeri').html('<div>Ciao! Prova a memorizzare questi 5 numeri:</div>' + listaNumeriRandom);
+
+    setTimeout(function() {
+
+        $('.memorizza-numeri').hide();
+
+    }, 30000);
+
+    setTimeout(function() {
+
+        // l'utente deve inserire i numeri visualizzati in precedenza
+        for (var i = 0; i < 5; i++) {
+            numeroUtente = parseInt(prompt(' Inserisci uno alla volta i numeri che ricordi '));
+                for (var numeri = 0; numeri < listaNumeriRandom.length; numeri++) {
+                if (numeroUtente == listaNumeriRandom[numeri]) {
+                    listaNumeriUtente.push(numeroUtente);
+                }
+            }
+        }
+        // devo stampare quanti numeri ha ricordato l'utente + i numeri corretti che ha inserito
+        $('.numeri-indovinati').html(' Sei riuscito a ricordare ' + listaNumeriUtente.length + 'numeri. Ecco i numeri indovinati:' + listaNumeriUtente);
+        console.log(listaNumeriUtente);
+
+    }, 31000);
 
 
 });
