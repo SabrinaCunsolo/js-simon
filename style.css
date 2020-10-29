@@ -3,3 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    background-color: #64D0B8;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.wrapper {
+    padding: 200px;
+    width: 800px;
+    height: auto;
+}
+
+.memorizza-numeri, .numeri-indovinati {
+    text-align: center;
+    color: #285E60;
+    font-size: 40px;
+}
