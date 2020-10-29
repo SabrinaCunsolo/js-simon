@@ -18,7 +18,8 @@ for (var i = 0; i < 5; i++) {
     listaNumeriRandom.push(numeroRandom);
 }
 console.log(listaNumeriRandom);
-
+// Chiedo all'utente di memorizzare i 5 numeri della listaNumeriRandom
+document.write(' Ciao! Prova a memorizzare questi 5 numeri ' + listaNumeriRandom);
 
 });
 
